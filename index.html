@@ -37,8 +37,22 @@
                 <input type="text" name="equation" id="equation">
             </form>
             <div class="inputs">
-                <div class="numbers" id="number"></div>
+                <div class="numbers" id="number">
+                    <button class="btn-number">1</button>
+                    <button class="btn-number">2</button>
+                    <button class="btn-number">3</button>
+                    <button class="btn-number">4</button>
+                    <button class="btn-number">5</button>
+                    <button class="btn-number">6</button>
+                    <button class="btn-number">7</button>
+                    <button class="btn-number">8</button>
+                    <button class="btn-number">9</button>
+                    <button class="btn-number">0</button>
+                    <button class="btn-number">.</button>
+                </div>
                 <div class="operands">
+                    <button id="del" onclick="del()"><i class="fa fa-eraser"></i></button>
+                    <button id="clear" onclick="document.getElementById('equation').value = ''">C</button>
                     <button class="btn-operands" id="plus">+</button>
                     <button class="btn-operands" id="minus">-</button>
                     <button class="btn-operands" id="multiply">*</button>

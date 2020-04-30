@@ -57,22 +57,19 @@ function calculate() {
 
     while (operands.length) {
         let i = 0;
-        let size = operands.length;
-        for (; i < size; i++) {
-            let item = operands[i];
-            if (item == '*') {
-                inputNum[i] = inputNum[i] * inputNum[i + 1];
-            } else if (item == '/') {
-                inputNum[i] = inputNum[i] / inputNum[i + 1];
-            } else if (item == '+') {
-                inputNum[i] = inputNum[i] + inputNum[i + 1];
-            } else if (item == '-') {
-                inputNum[i] = inputNum[i] - inputNum[i + 1];
-            }
 
-            inputNum.splice(i + 1, 1);
-            operands.splice(i, 1);
+        if ((i = operands.findIndex((opr) => opr == "*")) != -1) {
+            inputNum[i] = parseFloat(inputNum[i]) * parseFloat(inputNum[i + 1]);
+        } else if ((i = operands.findIndex((opr) => opr == "/")) != -1) {
+            inputNum[i] = parseFloat(inputNum[i]) / parseFloat(inputNum[i + 1]);
+        } else if ((i = operands.findIndex((opr) => opr == "+")) != -1) {
+            inputNum[i] = parseFloat(inputNum[i]) + parseFloat(inputNum[i + 1]);
+        } else if ((i = operands.findIndex((opr) => opr == "-")) != -1) {
+            inputNum[i] = parseFloat(inputNum[i]) - parseFloat(inputNum[i + 1]);
         }
+
+        inputNum.splice(i + 1, 1);
+        operands.splice(i, 1);
     }
     input.value = inputNum[0];
 }
@@ -85,7 +82,13 @@ function checkInput(input) {
     }
 }
 
+function del() {
+    const input = document.getElementById('equation').value;
+    document.getElementById('equation').value = input.slice(0, -1);
+}
+
+
 menu();
-makeNumbers();
+// makeNumbers();
 numberClick();
 operandsClick();

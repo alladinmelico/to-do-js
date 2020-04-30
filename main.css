@@ -127,6 +127,16 @@ button:active {
     text-align: center;
 }
 
+.btn-operands {
+    background-color: var(--sub-color-light);
+}
+
+#equal {
+    background-color: var(--main-color-light);
+    color: var(--main-color-dark);
+    width: 80%;
+}
+
 input {
     border-radius: 10px;
     font-size: 2rem;
